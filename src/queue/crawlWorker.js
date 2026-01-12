@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 import { Worker } from "bullmq";
 import { crawlSite } from "../crawler/multiCrawler.js";
-
+import 'dotenv/config'
 
 async function startWorker() {
   try {
         console.log("Connecting worker to MongoDB...");
-
-        await mongoose.connect("mongodb://127.0.0.1:27017/search_engine");
+        const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/search_engine";
+        await mongoose.connect(MONGO_URI);
 
         console.log("Worker connected to MongoDB");
 

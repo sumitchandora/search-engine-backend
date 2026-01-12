@@ -1,9 +1,9 @@
 import { createClient } from "redis";
-
+import 'dotenv/config'
 const client = createClient({
     socket: {
-        host: "127.0.0.1",
-        port: 6379,
+        host: process.env.REDDIS_HOST || "127.0.0.1",
+        port: process.env.REDDIS_PORT || 6379,
         reconnectStrategy: retries => {
             console.log(`Redis reconnect attempt: ${retries}`);
             return Math.min(retries * 100, 3000);
