@@ -45,10 +45,19 @@
     <li>Fast search responses with Redis caching</li>
     <li>Clear separation of concerns between API, worker, crawler, and indexer</li>
   </ul>
+  
+<h2> Search Engine Architecture (Conceptual)</h2>
 
-  <h2> System Architecture</h2>
-  <div class="architecture">
-    <p>Client -> Express API -> Redis Queue (BullMQ) -> Background Worker Crawler -> Indexer -> MongoDB
+
+<img 
+  src="https://media.geeksforgeeks.org/wp-content/uploads/20231009135700/Architecture-of-Search-Engine-copy.webp"
+  alt="Search Engine Architecture Diagram"
+  style="max-width: 100%; height: auto; border: 1px solid #e5e7eb; border-radius: 6px; margin: 20px 0;"
+/>
+<h3>In this project:</h3>
+<p>Client -> Express API -> Redis Queue (BullMQ) -> Background Worker Crawler -> Indexer -> MongoDB</p>
+
+    
 
   <h2> Technologies Used (and Why)</h2>
 
