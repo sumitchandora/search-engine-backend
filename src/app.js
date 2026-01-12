@@ -3,6 +3,7 @@ import crawlRoutes from "./routes/crawl.routes.js";
 import searchRoutes from "./routes/search.routes.js";
 import { connectRedis } from "./cache/redisClient.js";
 import { connectDB } from '../src/config/db.js'
+import 'dotenv/config'
 const app = express();
 
 app.use(express.json());
@@ -13,7 +14,7 @@ await connectRedis();
 app.use("/crawl", crawlRoutes);
 app.use("/search", searchRoutes);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     connectDB();
     console.log("Server started on port 3000");
 });
